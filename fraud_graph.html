@@ -1,4 +1,127 @@
-<html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fraud Detection Graph Demo</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0b1020;
+            color: white;
+        }
+
+        .page-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        .header-box {
+            background: linear-gradient(135deg, #0b1020 0%, #111a3a 100%);
+            border-bottom: 1px solid #334155;
+            padding: 24px 28px;
+            border-radius: 16px 16px 0 0;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+        }
+
+        .title {
+            margin: 0 0 10px 0;
+            font-size: 42px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .subtitle {
+            margin: 0 0 18px 0;
+            font-size: 20px;
+            color: #cbd5e1;
+        }
+
+        .legend {
+            display: flex;
+            gap: 28px;
+            flex-wrap: wrap;
+            font-size: 16px;
+            color: #e2e8f0;
+            margin-top: 12px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .square {
+            width: 16px;
+            height: 16px;
+            display: inline-block;
+        }
+
+        .content-box {
+            background: #0b1020;
+            border-radius: 0 0 16px 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+        }
+
+        .description-box {
+            background: #111827;
+            margin-top: 22px;
+            padding: 20px 24px;
+            border-radius: 14px;
+            color: #dbeafe;
+            line-height: 1.65;
+            font-size: 17px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+        }
+
+        .description-box b {
+            color: #ffffff;
+        }
+
+        iframe, .graph-wrapper {
+            width: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <div class="header-box">
+            <h1 class="title">Transaction–Entity Graph</h1>
+            <p class="subtitle">
+                Interactive view of sampled transactions and their shared entities
+            </p>
+
+            <div class="legend">
+                <div class="legend-item">
+                    <span class="dot" style="background:#ef4444;"></span>
+                    <span>Fraud transaction</span>
+                </div>
+                <div class="legend-item">
+                    <span class="dot" style="background:#22c55e;"></span>
+                    <span>Legitimate transaction</span>
+                </div>
+                <div class="legend-item">
+                    <span class="square" style="background:#38bdf8;"></span>
+                    <span>Shared entity</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-box">
+            <html>
     <head>
         <meta charset="utf-8">
         
@@ -338,4 +461,17 @@ function highlightFilter(filter) {
               drawGraph();
         </script>
     </body>
+</html>
+        </div>
+
+        <div class="description-box">
+            <b>Interpretation:</b> each circle represents a transaction and each square represents
+            a shared entity such as a card, address, device, or email-related attribute. 
+            Fraudulent transactions are shown in red, legitimate transactions in green, and shared
+            entities in blue. This graph illustrates how suspicious transactions may become connected
+            through common attributes, which is precisely the kind of relational structure that
+            graph-based methods can exploit better than purely tabular models.
+        </div>
+    </div>
+</body>
 </html>
